@@ -1,0 +1,52 @@
+{
+  "// 注释": "这是一个示例配置文件",
+  
+  "channels": {
+    "telegram": {
+      "token": "YOUR_TELEGRAM_BOT_TOKEN",
+      "allowFrom": ["your_telegram_id"]
+    },
+    "feishu": {
+      "appId": "YOUR_FEISHU_APP_ID",
+      "appSecret": "YOUR_FEISHU_APP_SECRET"
+    }
+  },
+  
+  "cron": {
+    "jobs": [
+      {
+        "name": "morning-weather",
+        "schedule": {
+          "kind": "cron",
+          "expr": "0 7 * * *",
+          "tz": "Asia/Shanghai"
+        },
+        "payload": {
+          "kind": "agentTurn",
+          "message": "早上好！请告诉我今天上海的天气"
+        },
+        "sessionTarget": "isolated"
+      },
+      {
+        "name": "standup-reminder",
+        "schedule": {
+          "kind": "cron",
+          "expr": "50 9 * * 1-5",
+          "tz": "Asia/Shanghai"
+        },
+        "payload": {
+          "kind": "agentTurn",
+          "message": "提醒：10分钟后站会"
+        },
+        "sessionTarget": "isolated"
+      }
+    ]
+  },
+  
+  "skills": {
+    "entries": {
+      "weather": { "enabled": true },
+      "github": { "enabled": true }
+    }
+  }
+}

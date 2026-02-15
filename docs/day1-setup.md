@@ -1,0 +1,111 @@
+# Day 1：环境搭建
+
+> 🎯 **学习目标**：安装 OpenClaw 并连接第一个聊天渠道
+
+## 什么是 OpenClaw
+
+OpenClaw 是一个自托管的 AI 助手网关：
+
+- 🔗 **多渠道**：WhatsApp/Telegram/Discord/飞书等
+- 🏠 **自托管**：数据在你自己的机器上
+- 🤖 **Agent 原生**：支持工具使用、记忆、多 Agent
+- 🔓 **开源**：MIT 协议
+
+## 安装
+
+### 1. 检查 Node 版本
+
+```bash
+node -v
+# 需要 22+
+```
+
+### 2. 安装 OpenClaw
+
+```bash
+npm i -g openclaw
+```
+
+### 3. 首次运行
+
+```bash
+openclaw
+```
+
+首次运行会进入交互式配置，设置 API Key 等。
+
+## 配置 Telegram（推荐新手）
+
+Telegram 是最简单的入门渠道：
+
+### Step 1: 创建 Bot
+
+1. 在 Telegram 找 `@BotFather`
+2. 发送 `/newbot`
+3. 按提示设置名称
+4. 获取 Bot Token
+
+### Step 2: 配置 OpenClaw
+
+```bash
+openclaw configure --section telegram
+# 粘贴 Bot Token
+```
+
+### Step 3: 重启 Gateway
+
+```bash
+openclaw gateway restart
+```
+
+### Step 4: 测试
+
+在 Telegram 找到你的 bot，发送消息，收到 AI 回复！
+
+## 其他渠道
+
+不同渠道的配置难度：
+
+| 渠道 | 难度 | 说明 |
+|-----|-----|------|
+| Telegram | ⭐ | 只需 bot token |
+| Discord | ⭐⭐ | 需创建 Discord 应用 |
+| 飞书 | ⭐⭐ | 需配置机器人 |
+| WhatsApp | ⭐⭐⭐ | 需 QR 码配对 |
+
+## 常用命令
+
+```bash
+# 启动 Gateway
+openclaw gateway start
+
+# 停止 Gateway
+openclaw gateway stop
+
+# 重启 Gateway
+openclaw gateway restart
+
+# 查看状态
+openclaw status
+```
+
+## 配置文件位置
+
+```
+~/.openclaw/
+├── openclaw.json      # 主配置
+├── workspace/         # Agent 工作空间
+└── skills/            # 自定义 Skills
+```
+
+## ✅ 今日练习
+
+- [ ] 安装 OpenClaw
+- [ ] 创建 Telegram bot 并获取 token
+- [ ] 配置并连接 Telegram
+- [ ] 发送第一条消息，收到 AI 回复
+- [ ] 运行 `openclaw status` 检查状态
+
+---
+
+[下一天：多渠道配置 →](day2-channels.md)
