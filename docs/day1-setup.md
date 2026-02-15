@@ -34,22 +34,21 @@ openclaw
 
 首次运行会进入交互式配置，设置 API Key 等。
 
-## 配置 Telegram（推荐新手）
+## 配置飞书
 
-Telegram 是最简单的入门渠道：
+### Step 1: 创建应用
 
-### Step 1: 创建 Bot
-
-1. 在 Telegram 找 `@BotFather`
-2. 发送 `/newbot`
-3. 按提示设置名称
-4. 获取 Bot Token
+1. 登录 [飞书开放平台](https://open.feishu.cn)
+2. 创建企业自建应用
+3. 开启「机器人」能力
+4. 获取 App ID 和 App Secret
+5. 配置事件订阅（WebSocket 方式）
 
 ### Step 2: 配置 OpenClaw
 
 ```bash
-openclaw configure --section telegram
-# 粘贴 Bot Token
+openclaw configure --section feishu
+# 输入 App ID 和 App Secret
 ```
 
 ### Step 3: 重启 Gateway
@@ -60,7 +59,7 @@ openclaw gateway restart
 
 ### Step 4: 测试
 
-在 Telegram 找到你的 bot，发送消息，收到 AI 回复！
+在飞书给你的机器人发消息，收到 AI 回复！
 
 ## 其他渠道
 
@@ -68,9 +67,9 @@ openclaw gateway restart
 
 | 渠道 | 难度 | 说明 |
 |-----|-----|------|
+| 飞书 | ⭐⭐ | 需配置机器人（本教程使用）|
 | Telegram | ⭐ | 只需 bot token |
 | Discord | ⭐⭐ | 需创建 Discord 应用 |
-| 飞书 | ⭐⭐ | 需配置机器人 |
 | WhatsApp | ⭐⭐⭐ | 需 QR 码配对 |
 
 ## 常用命令
@@ -101,8 +100,8 @@ openclaw status
 ## ✅ 今日练习
 
 - [ ] 安装 OpenClaw
-- [ ] 创建 Telegram bot 并获取 token
-- [ ] 配置并连接 Telegram
+- [ ] 在飞书开放平台创建应用并获取凭证
+- [ ] 配置并连接飞书
 - [ ] 发送第一条消息，收到 AI 回复
 - [ ] 运行 `openclaw status` 检查状态
 
